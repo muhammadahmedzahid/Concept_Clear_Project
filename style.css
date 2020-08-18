@@ -1,0 +1,109 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#main-section{
+  background-color: cadetblue;
+ 
+  padding: 3rem 2rem;
+}
+.container{
+  margin: 0 auto;
+  text-align: center;
+  
+}
+#list-timeline{
+  background-color: darkslategrey;
+  color: white;
+  padding: 2rem 2rem;
+}
+#list-timeline ul li{
+ /* Remove the bullet points */
+ list-style: none;
+ margin: 0 auto;
+ width: 6px;
+ background-color: white;
+ position: relative;
+ padding-top: 50px;
+ /* border: 3px #000 dotted; */
+}
+#list-timeline ul li:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height:20px;
+  border-radius: 50%;
+  background-color: cadetblue;
+  bottom: 0;
+ left: 50%;
+ transform: translate(-50%);
+
+}
+/* Add code before the div created*/
+
+#list-timeline div:before{
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+
+}
+#list-timeline ul li:nth-child(odd) div::before{
+  border-width: 8px 16px 8px 0;
+  left: -15px;
+  border-color: transparent cornflowerblue transparent transparent;
+}
+#list-timeline ul li:nth-child(even) div::before{
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent cornflowerblue;
+}
+
+#list-timeline ul li div{
+  /* It gives to control the position the li where as in the screen */
+  position: relative;
+  width: 400px;
+  /* bottom: 0; */
+  padding: 1rem;
+  background-color: cornflowerblue;
+  transition: all 0.5s ease-in-out;
+}
+/* As li has childs not div has */
+#list-timeline ul li:nth-child(odd) div{
+  left: 50px;
+}
+#list-timeline ul li:nth-child(even) div{
+  left: -445px;
+}
+
+/* Responsive Layout */
+/* Below code not run till the width greater than 900px */
+@media (max-width:900px){
+
+  #list-timeline ul li div{
+    width: 250px;
+  }
+  #list-timeline ul li:nth-child(even) div{
+    left: -280px;
+  }
+}
+@media(max-width:600px){
+  #list-timeline ul li{
+    /* As other code is in centered Position */
+    margin-left: 5px;
+  }
+  #list-timeline ul li div{
+    width: calc(100vw - 130px);
+  }
+  #list-timeline ul li:nth-child(even) div{
+    left: 40px;
+  }
+  #list-timeline ul li:nth-child(even) div::before{
+    border-width: 8px 16px 8px 0;
+    left: -15px;
+    border-color: transparent cornflowerblue transparent transparent;
+  }
+}
